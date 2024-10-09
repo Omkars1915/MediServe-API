@@ -1,12 +1,14 @@
 package com.MediServe.Dao;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.MediServe.entity.Doctor;
-import com.MediServe.entity.Patient;
 
 @Repository
 public class DoctorDaoImple implements DoctorDao {
@@ -27,18 +29,19 @@ public class DoctorDaoImple implements DoctorDao {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return null;
 	}
 
+
+
 	@Override
-	public Patient addPatient(Patient patient) {
+	public Doctor adddoctor(Doctor doctor) {
 		Session session=null;
-		
 		try {
 			session=factory.openSession();
-			session.save(patient);
+			session.save(doctor);
 			session.beginTransaction().commit();
 			
 		} catch (Exception e) {
@@ -46,5 +49,37 @@ public class DoctorDaoImple implements DoctorDao {
 		}
 		return null;
 	}
+
+	@Override
+	public Doctor deletedoctorbyid(long id) {
+		Session session=null;
+		try {
+			session=factory.openSession();
+			Doctor doctor = session.get(Doctor.class, id);
+			session.delete(doctor);
+			session.beginTransaction().commit();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Doctor> getalldoctors() {
+		Session session=null;
+		try {
+			session=factory.openSession();
+			Criteria criteria = session.createCriteria(Doctor.class);
+			List list = criteria.list();
+			return list;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 
 }

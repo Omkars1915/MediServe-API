@@ -1,11 +1,12 @@
 package com.MediServe.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.MediServe.Dao.DoctorDao;
 import com.MediServe.entity.Doctor;
-import com.MediServe.entity.Patient;
 
 @Service
 public class DoctorServiceImple implements DoctorService {
@@ -20,8 +21,18 @@ public class DoctorServiceImple implements DoctorService {
 	}
 
 	@Override
-	public Patient addPatient(Patient patient) {
-		return doctordao.addPatient(patient);
+	public Doctor addDoctor(Doctor doctor) {
+		return doctordao.adddoctor(doctor);
+	}
+
+	@Override
+	public Doctor deletedoctorbyid(long id) {
+		return doctordao.deletedoctorbyid(id);
+	}
+
+	@Override
+	public List<Doctor> getalldoctors() {
+		return doctordao.getalldoctors();
 	}
 
 }
