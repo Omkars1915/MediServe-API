@@ -47,10 +47,13 @@ public class DoctorController {
 		return doctorservice.deletedoctorbyid(id);
 	}
 	
+	@GetMapping("get-doctor-by-id/{id}")
+	public Doctor getDoctorbyid(@PathVariable long id) {
+		return doctorservice.getdoctorbyid(id);
+	}
 
 	@GetMapping("get-all-doctors")
 	public List<Doctor> getalldoctors(){
 		return doctorservice.getalldoctors();
 	}
-	
 }

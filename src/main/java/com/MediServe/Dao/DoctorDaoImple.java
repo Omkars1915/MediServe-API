@@ -79,6 +79,22 @@ public class DoctorDaoImple implements DoctorDao {
 		}
 		return null;
 	}
+
+
+
+	@Override
+	public Doctor getdoctorbyid(long id) {
+		Session session=null;
+		try {
+			session=factory.openSession();
+			Doctor doctor = session.get(Doctor.class, id);
+			return doctor;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	
 

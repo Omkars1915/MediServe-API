@@ -14,4 +14,6 @@ public interface DoctorService {
 
 	List<Doctor> getalldoctors();
 
+	Doctor getdoctorbyid(long id);
+
 }

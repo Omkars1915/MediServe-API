@@ -35,4 +35,9 @@ public class DoctorServiceImple implements DoctorService {
 		return doctordao.getalldoctors();
 	}
 
+	@Override
+	public Doctor getdoctorbyid(long id) {
+		return doctordao.getdoctorbyid(id);
+	}
+
 }

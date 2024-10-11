@@ -50,5 +50,38 @@ public class PatientDaoImple implements PatientDao {
 		return null;
 	}
 
+
+	@Override
+	public Patient getpatientbyid(long id) {
+		Session session=null;
+		
+		try {
+			session=factory.openSession();
+			Patient patient = session.get(Patient.class, id);
+			return patient;
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
+	@Override
+	public Patient deletepatientbyid(long id) {
+		Session session=null;
+		
+		try {
+			session=factory.openSession();
+			Patient patient = session.get(Patient.class, id);
+			session.delete(patient);
+			session.beginTransaction().commit();
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	
 }

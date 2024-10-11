@@ -15,4 +15,7 @@ public interface DoctorDao {
 
 	List<Doctor> getalldoctors();
 
+
+	Doctor getdoctorbyid(long id);
+
 }

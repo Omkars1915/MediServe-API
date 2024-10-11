@@ -10,4 +10,8 @@ public interface PatientDao {
 
 	List<Patient> getallpatients();
 
+	Patient getpatientbyid(long id);
+
+	Patient deletepatientbyid(long id);
+
 }

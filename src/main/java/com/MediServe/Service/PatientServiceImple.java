@@ -23,5 +23,15 @@ public class PatientServiceImple implements PatientService {
 	public List<Patient> getallpatients() {
 		return patientdao.getallpatients();
 	}
+
+	@Override
+	public Patient getpatientbyid(long id) {
+		return patientdao.getpatientbyid(id);
+	}
+
+	@Override
+	public Patient deletepatientbyid(long id) {
+		return patientdao.deletepatientbyid(id);
+	}
 	
 }
