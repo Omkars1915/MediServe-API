@@ -34,8 +34,6 @@ public class DoctorDaoImple implements DoctorDao {
 		return null;
 	}
 
-
-
 	@Override
 	public Doctor adddoctor(Doctor doctor) {
 		Session session=null;
@@ -80,8 +78,6 @@ public class DoctorDaoImple implements DoctorDao {
 		return null;
 	}
 
-
-
 	@Override
 	public Doctor getdoctorbyid(long id) {
 		Session session=null;
@@ -95,7 +91,4 @@ public class DoctorDaoImple implements DoctorDao {
 		}
 		return null;
 	}
-	
-	
-
 }
